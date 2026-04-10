@@ -94,7 +94,7 @@ const baseColors = [
 function updateGameplayUI(showFeedback = false, feedbackCorrect = false) {
     let wordBoxesHTML = remainingWords.map((word, i) => {
         let color = baseColors[i % baseColors.length];
-        return `<div class="interactive word-box" data-action="select_word" data-word="${word}" style="background-color:${color}"><span>${word}</span></div>`;
+        return `<div class="interactive word-box level-${currentLevel}" data-action="select_word" data-word="${word}" style="background-color:${color}"><span>${word}</span></div>`;
     }).join('');
 
     let overlayHTML = '';

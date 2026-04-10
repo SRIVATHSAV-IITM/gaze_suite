@@ -72,14 +72,25 @@ body {
 
 /* Buttons */
 .btn {
-    padding: 20px 40px;
-    font-size: 2rem;
+    padding: 18px 36px;
+    font-size: 1.8rem;
     margin: 10px;
     border: 3px solid #333;
     border-radius: 15px;
     background-color: white;
     font-weight: bold;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    min-width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome-screen .btn {
+    padding: 30px 60px;
+    font-size: 3.2rem;
+    min-width: 280px;
+    border-width: 5px;
 }
 
 /* Specific elements */
@@ -87,10 +98,10 @@ body {
     font-size: 3rem;
     color: #2c78dc;
     background: white;
-    padding: 20px 40px;
+    padding: 15px 30px;
     border: 4px solid #2c78dc;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .quote {
@@ -98,8 +109,8 @@ body {
     color: #504614;
     background: #fffacd;
     padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
 }
 
 /* Level Select */
@@ -110,12 +121,12 @@ body {
 }
 
 .level-btn {
-    width: 250px;
+    width: 240px;
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     border-radius: 20px;
     border: 4px solid #333;
     font-weight: bold;
@@ -124,14 +135,14 @@ body {
 /* Gameplay */
 .top-bar {
     width: 90%;
-    height: 60px;
-    margin: 10px 0;
+    height: 65px;
+    margin: 5px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    border-radius: 15px;
-    border: 3px solid black;
+    font-size: 1.8rem;
+    border-radius: 12px;
+    border: 2px solid black;
     font-weight: bold;
 }
 
@@ -146,12 +157,12 @@ body {
 }
 
 .word-area {
-    width: 90%;
+    width: 95%;
     flex-grow: 1;
     background-color: #dcdcdc;
     border: 4px solid #646464;
     border-radius: 20px;
-    margin: 20px 0;
+    margin: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -159,38 +170,64 @@ body {
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
+    overflow: hidden; /* Prevent area from growing too much */
 }
 
 .word-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
     font-weight: bold;
     border: 3px solid #333;
     border-radius: 15px;
     padding: 10px 20px;
-    min-width: 150px;
-    min-height: 80px;
+    transition: transform 0.2s;
+}
+
+.word-box.level-0 { /* 4 words */
+    width: 280px;
+    height: 180px;
+    font-size: 3rem;
+}
+
+.word-box.level-1 { /* 6 words */
+    width: 220px;
+    height: 130px;
+    font-size: 2.2rem;
+}
+
+.word-box.level-2 { /* 9 words */
+    width: 170px;
+    height: 100px;
+    font-size: 1.6rem;
 }
 
 .word-box.error {
     border-color: red !important;
     background-color: #ffcccc !important;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
 }
 
 .control-area {
     display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-shrink: 0; /* Don't allow controls to be compressed/pushed off */
 }
 
 .control-btn {
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 1.4rem;
+    border-radius: 12px;
     border: 3px solid #333;
     background: white;
+    font-weight: bold;
 }
 
 /* Feedback Overlay */
